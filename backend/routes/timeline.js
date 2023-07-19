@@ -1,25 +1,19 @@
 import express from 'express';
 
+import {
+  create,
+  read,
+  readOne,
+  update,
+  destroy
+} from '../controllers/timeline.controller.js';
+
 const router = express.Router();
 
-router.get("/", (req, res) => {
-  res.send("getALL");
-});
-
-router.get("/:id", (req, res) => {
-  res.send("getONE");
-});
-
-router.post("/", (req, res) => {
-  res.send("create");
-});
-
-router.put("/:id", (req, res) => {
-  res.send("update");
-});
-
-router.delete("/:id", (req, res) => {
-  res.send("delete");
-});
+router.post("/", create);
+router.get("/", read);
+router.get("/:id", readOne);
+router.put("/:id", update);
+router.delete("/:id", destroy);
 
 export default router;

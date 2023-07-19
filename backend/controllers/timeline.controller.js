@@ -4,7 +4,7 @@ import {
   createOne,
   editOne,
   deleteOne
-} from "../models/timeline.model";
+} from "../models/timeline.model.js";
 
 export const create = async (req, res) => {
   res.json(await createOne());

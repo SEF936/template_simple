@@ -1,4 +1,4 @@
-import db from "./db.js";
+import db from "../db.js";
 
 export const getAll = () => {
   return db.query("SELECT * FROM timeline");
