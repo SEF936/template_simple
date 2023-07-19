@@ -5,7 +5,7 @@ import cors from "cors";
 import timelineRoutes from "./routes/timeline.js";
 
 
-const port = parseInt(process.env.APP_PORT ?? "5544", 10);
+const port = parseInt(process.env.APP_PORT ?? "5000", 10);
 
 const app = express();
 
@@ -20,7 +20,7 @@ app.use(cors({
   optionsSuccessStatus: 200
 }));
 
-app.use(timelineRoutes);
+app.use("/timeline", timelineRoutes);
 
 
 app.listen(port, (err) => {
