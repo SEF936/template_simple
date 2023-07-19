@@ -71,5 +71,17 @@ export const update = async (req, res) => {
 }
 
 export const destroy = async (req, res) => {
-  res.json(await deleteOne());
+
+  try {
+    const [result] = await deleteOne(req.params.id);
+
+    if (result.affectedRows) {
+      res.sendStatus(204);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error with server" })
+  }
 }
