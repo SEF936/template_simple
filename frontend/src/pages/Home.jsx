@@ -28,7 +28,8 @@ const Home = () => {
 								year: "numeric",
 							})}
 						</p>
-						<p>{t.event}</p>
+						<img src={t.event_icon} alt="" />
+						<p>{t.event_name}</p>
 					</article>
 				))
 			) : (
