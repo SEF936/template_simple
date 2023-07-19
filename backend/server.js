@@ -1,9 +1,9 @@
-import dotenv from "dotenv";
-import express from 'express';
-import cors from 'cors';
-import router from "./routes/routes.js";
+import "dotenv/config";
+import express from "express";
+import cors from "cors";
 
-dotenv.config();
+import timelineRoutes from "./routes/timeline.js";
+
 
 const port = parseInt(process.env.APP_PORT ?? "5544", 10);
 
@@ -20,7 +20,7 @@ app.use(cors({
   optionsSuccessStatus: 200
 }));
 
-app.use(router);
+app.use(timelineRoutes);
 
 
 app.listen(port, (err) => {
