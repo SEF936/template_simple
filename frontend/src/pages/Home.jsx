@@ -23,10 +23,14 @@ const Home = () => {
 			<section>
 				{timelines ? (
 					timelines.map((t) => (
-						<Link key={t.id} to={`dates/${t.event_name}`}>
+						<Link
+							key={t.id}
+							to={`dates/${t.event_name}`}
+							state={t.event_description}
+						>
 							<article>
 								<p>
-									{new Date(t.start_date).toLocaleDateString("fr-FR", {
+									{new Date(t.start_date).toLocaleDateString("en-EN", {
 										month: "long",
 										year: "numeric",
 									})}
