@@ -24,7 +24,19 @@ export const read = async (req, res) => {
 }
 
 export const readOne = async (req, res) => {
-  res.json(await getOne());
+
+  try {
+    const [result] = await getOne(req.params.id);
+
+    if (result.length) {
+      res.json(result[0]);
+    } else {
+      res.sendStatus(404);
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error with server" })
+  }
 }
 
 export const update = async (req, res) => {
