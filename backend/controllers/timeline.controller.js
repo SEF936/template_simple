@@ -53,7 +53,21 @@ export const readOne = async (req, res) => {
 }
 
 export const update = async (req, res) => {
-  res.json(await editOne());
+
+  try {
+    const timeline = req.body;
+    const { id } = req.params;
+    const [result] = await editOne({ id, ...timeline });
+
+    if (result.affectedRows) {
+      res.json({ id, ...timeline });
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error with server" })
+  }
 }
 
 export const destroy = async (req, res) => {
