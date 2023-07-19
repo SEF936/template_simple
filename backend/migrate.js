@@ -1,7 +1,8 @@
-require("dotenv").config();
-
+import dotenv from "dotenv";
 import { readFileSync } from "fs";
 import { createConnection } from "mysql2/promise";
+
+dotenv.config();
 
 const migrate = async () => {
   const { DB_HOST, DB_PORT, DB_USER, DB_PASSWORD, DB_NAME } = process.env;
