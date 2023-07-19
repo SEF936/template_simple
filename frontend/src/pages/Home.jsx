@@ -1,13 +1,12 @@
 import instance from "../helpers/instance";
 import { useEffect, useState } from "react";
-import axios from "axios";
 
 const Home = () => {
 	const [timelines, setTimelines] = useState();
 
 	useEffect(() => {
-		axios
-			.get(`${import.meta.env.VITE_BACKEND_URL}/timeline`)
+		instance
+			.get(`/timeline`)
 			.then((result) => {
 				setTimelines(result.data);
 			})
@@ -16,11 +15,22 @@ const Home = () => {
 			});
 	}, []);
 
+	console.log(timelines);
 	return (
 		<div id="HomeContainer">
 			<h1>Home</h1>
 
-			{timelines ? <p>{timelines[0].event}</p> : <p>Loading...</p>}
+			{timelines ? (
+				timelines.map((t) => (
+					<article key={t.id}>
+						<p>{t.start_date}</p>
+						<p>{t.end_date}</p>
+						<p>{t.event}</p>
+					</article>
+				))
+			) : (
+				<p>Loading...</p>
+			)}
 		</div>
 	);
 };
