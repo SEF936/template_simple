@@ -17,24 +17,27 @@ const Home = () => {
 
 	return (
 		<div id="HomeContainer">
-			<h1>Home</h1>
+			<h1>Timeline of web languages</h1>
 
-			{timelines ? (
-				timelines.map((t) => (
-					<article key={t.id}>
-						<p>
-							{new Date(t.start_date).toLocaleDateString("fr-FR", {
-								month: "long",
-								year: "numeric",
-							})}
-						</p>
-						<img src={t.event_icon} alt="" />
-						<p>{t.event_name}</p>
-					</article>
-				))
-			) : (
-				<p>Loading...</p>
-			)}
+			<section>
+				{timelines ? (
+					timelines.map((t) => (
+						<article key={t.id}>
+							<p>
+								{new Date(t.start_date).toLocaleDateString("fr-FR", {
+									month: "long",
+									year: "numeric",
+								})}
+							</p>
+							<img src={t.event_icon} alt="" />
+							<p>{t.event_name}</p>
+						</article>
+					))
+				) : (
+					<p>Loading...</p>
+				)}
+				<div />
+			</section>
 		</div>
 	);
 };

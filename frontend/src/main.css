@@ -13,3 +13,35 @@ body {
 	justify-content: center;
 	align-items: center;
 }
+
+#HomeContainer {
+	position: relative;
+	min-height: 50vh;
+}
+
+#HomeContainer article {
+	position: relative;
+	z-index: 2;
+	display: flex;
+	justify-content: space-between;
+	margin: 10vh 0;
+}
+
+#HomeContainer p {
+	width: 20vw;
+}
+
+#HomeContainer img {
+	width: 10vw;
+	height: auto;
+}
+
+#HomeContainer div {
+	width: 1vw;
+	height: 80%;
+	background-color: black;
+	position: absolute;
+	bottom: 0;
+	left: 50%;
+	z-index: 1;
+}
