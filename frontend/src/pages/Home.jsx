@@ -15,7 +15,6 @@ const Home = () => {
 			});
 	}, []);
 
-	console.log(timelines);
 	return (
 		<div id="HomeContainer">
 			<h1>Home</h1>
@@ -23,8 +22,12 @@ const Home = () => {
 			{timelines ? (
 				timelines.map((t) => (
 					<article key={t.id}>
-						<p>{t.start_date}</p>
-						<p>{t.end_date}</p>
+						<p>
+							{new Date(t.start_date).toLocaleDateString("fr-FR", {
+								month: "long",
+								year: "numeric",
+							})}
+						</p>
 						<p>{t.event}</p>
 					</article>
 				))
