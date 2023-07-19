@@ -7,7 +7,20 @@ import {
 } from "../models/timeline.model.js";
 
 export const create = async (req, res) => {
-  res.json(await createOne());
+
+  try {
+    const timeline = req.body;
+    const [result] = await createOne(timeline);
+
+    if (result.affectedRows) {
+      res.status(201).json({ id: result.insertId, ...timeline })
+    } else {
+      res.sendStatus(400);
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error with server" })
+  }
 }
 
 export const read = async (req, res) => {
