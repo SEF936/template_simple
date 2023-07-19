@@ -11,7 +11,16 @@ export const create = async (req, res) => {
 }
 
 export const read = async (req, res) => {
-  res.json(await getAll());
+
+  try {
+    const [result] = await getAll();
+
+    res.json(result);
+
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Error with server" })
+  }
 }
 
 export const readOne = async (req, res) => {
