@@ -44,7 +44,11 @@ const Admin = () => {
 							</li>
 							<li>
 								<span>Event Description</span>
-								<input placeholder={ev.event_description} />
+								<textarea
+									placeholder={ev.event_description}
+									rows="5"
+									col="40"
+								/>
 							</li>
 						</ul>
 
