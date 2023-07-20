@@ -12,7 +12,12 @@ const Admin = () => {
 			.catch((err) => console.error(err));
 	}, []);
 
-	console.log(events);
+	const handleDelete = (id) => {
+		instance
+			.delete(`/timeline/${id}`)
+			.then((res) => setEvents(events.filter((del) => del.id !== id)))
+			.catch((err) => console.error(err));
+	};
 
 	return (
 		<div id="AdminContainer">
@@ -60,7 +65,8 @@ const Admin = () => {
 
 							<img
 								src="https://cdn-icons-png.flaticon.com/512/484/484611.png"
-								alt=""
+								alt="a trash icon used to launch the delete function"
+								onClick={() => handleDelete(ev.id)}
 							/>
 						</div>
 					</article>
