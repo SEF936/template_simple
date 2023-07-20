@@ -45,6 +45,10 @@ const Home = () => {
 				)}
 				<div />
 			</section>
+
+			<Link to="/admin">
+				<button>PAGE ADMIN</button>
+			</Link>
 		</div>
 	);
 };
