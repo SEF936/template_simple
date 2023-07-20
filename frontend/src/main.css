@@ -14,6 +14,12 @@ body {
 	align-items: center;
 }
 
+h1 {
+	text-align: center;
+}
+
+/*************** ADMIN CONTAINER **********************/
+
 #HomeContainer {
 	position: relative;
 	min-height: 50vh;
@@ -44,4 +50,37 @@ body {
 	bottom: 0;
 	left: 50%;
 	z-index: 1;
+}
+
+/*************** ADMIN CONTAINER **********************/
+
+#AdminContainer article {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 80vw;
+	margin: auto;
+}
+
+#AdminContainer ul {
+	padding-left: 0;
+	list-style-type: none;
+	width: 80%;
+}
+
+#AdminContainer li {
+	display: flex;
+	justify-content: space-between;
+}
+
+#AdminContainer .icon-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+#AdminContainer img {
+	max-width: 5vw;
+	margin: 10px 0;
 }
